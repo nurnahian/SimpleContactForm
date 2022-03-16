@@ -39,7 +39,6 @@ namespace SimpleContactForm
             this.labContactNo = new System.Windows.Forms.Label();
             this.txtboxLname = new System.Windows.Forms.TextBox();
             this.labLname = new System.Windows.Forms.Label();
-            this.txtboxGender = new System.Windows.Forms.TextBox();
             this.labGender = new System.Windows.Forms.Label();
             this.txtboxAddress = new System.Windows.Forms.TextBox();
             this.labAddress = new System.Windows.Forms.Label();
@@ -47,11 +46,12 @@ namespace SimpleContactForm
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ContactdataGridView = new System.Windows.Forms.DataGridView();
             this.labSearch = new System.Windows.Forms.Label();
             this.txtboxSearch = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ContactdataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -60,7 +60,7 @@ namespace SimpleContactForm
             this.pictureBox1.Location = new System.Drawing.Point(449, 14);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(69, 81);
+            this.pictureBox1.Size = new System.Drawing.Size(78, 79);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -79,6 +79,7 @@ namespace SimpleContactForm
             // 
             this.textBox1.Location = new System.Drawing.Point(172, 116);
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(205, 26);
             this.textBox1.TabIndex = 2;
             // 
@@ -133,13 +134,6 @@ namespace SimpleContactForm
             this.labLname.TabIndex = 5;
             this.labLname.Text = "Last Name";
             // 
-            // txtboxGender
-            // 
-            this.txtboxGender.Location = new System.Drawing.Point(172, 419);
-            this.txtboxGender.Name = "txtboxGender";
-            this.txtboxGender.Size = new System.Drawing.Size(205, 26);
-            this.txtboxGender.TabIndex = 12;
-            // 
             // labGender
             // 
             this.labGender.AutoSize = true;
@@ -173,19 +167,20 @@ namespace SimpleContactForm
             this.btnAdd.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAdd.Location = new System.Drawing.Point(226, 471);
+            this.btnAdd.Location = new System.Drawing.Point(297, 475);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(80, 34);
             this.btnAdd.TabIndex = 13;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnUpdate
             // 
             this.btnUpdate.BackColor = System.Drawing.Color.Khaki;
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnUpdate.Location = new System.Drawing.Point(337, 471);
+            this.btnUpdate.Location = new System.Drawing.Point(408, 475);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(80, 34);
             this.btnUpdate.TabIndex = 14;
@@ -194,7 +189,7 @@ namespace SimpleContactForm
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(558, 471);
+            this.btnClear.Location = new System.Drawing.Point(629, 475);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(80, 34);
             this.btnClear.TabIndex = 16;
@@ -206,20 +201,23 @@ namespace SimpleContactForm
             this.btnDelete.BackColor = System.Drawing.Color.Red;
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnDelete.Location = new System.Drawing.Point(447, 471);
+            this.btnDelete.Location = new System.Drawing.Point(518, 475);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(80, 34);
             this.btnDelete.TabIndex = 15;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
             // 
-            // dataGridView1
+            // ContactdataGridView
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(394, 163);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(535, 282);
-            this.dataGridView1.TabIndex = 17;
+            this.ContactdataGridView.BackgroundColor = System.Drawing.SystemColors.Info;
+            this.ContactdataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ContactdataGridView.GridColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ContactdataGridView.Location = new System.Drawing.Point(394, 163);
+            this.ContactdataGridView.Name = "ContactdataGridView";
+            this.ContactdataGridView.Size = new System.Drawing.Size(680, 282);
+            this.ContactdataGridView.TabIndex = 17;
+            this.ContactdataGridView.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.ContactdataGridView_RowHeaderMouseClick);
             // 
             // labSearch
             // 
@@ -234,22 +232,33 @@ namespace SimpleContactForm
             // 
             this.txtboxSearch.Location = new System.Drawing.Point(449, 114);
             this.txtboxSearch.Name = "txtboxSearch";
-            this.txtboxSearch.Size = new System.Drawing.Size(480, 26);
+            this.txtboxSearch.Size = new System.Drawing.Size(625, 26);
             this.txtboxSearch.TabIndex = 19;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+            this.comboBox1.Location = new System.Drawing.Point(172, 416);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(205, 28);
+            this.comboBox1.TabIndex = 20;
             // 
             // Contact
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(937, 531);
+            this.ClientSize = new System.Drawing.Size(1086, 531);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.txtboxSearch);
             this.Controls.Add(this.labSearch);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.ContactdataGridView);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.txtboxGender);
             this.Controls.Add(this.labGender);
             this.Controls.Add(this.txtboxAddress);
             this.Controls.Add(this.labAddress);
@@ -269,7 +278,7 @@ namespace SimpleContactForm
             this.Text = "Contact Form";
             this.Load += new System.EventHandler(this.Contact_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ContactdataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -286,7 +295,6 @@ namespace SimpleContactForm
         private System.Windows.Forms.Label labContactNo;
         private System.Windows.Forms.TextBox txtboxLname;
         private System.Windows.Forms.Label labLname;
-        private System.Windows.Forms.TextBox txtboxGender;
         private System.Windows.Forms.Label labGender;
         private System.Windows.Forms.TextBox txtboxAddress;
         private System.Windows.Forms.Label labAddress;
@@ -294,9 +302,10 @@ namespace SimpleContactForm
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView ContactdataGridView;
         private System.Windows.Forms.Label labSearch;
         private System.Windows.Forms.TextBox txtboxSearch;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 
