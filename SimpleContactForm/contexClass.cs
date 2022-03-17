@@ -84,21 +84,22 @@ namespace SimpleContactForm
             return isSuccess;
 
         }
-        public bool update(contexClass c)
+        public bool Update(contexClass c)
         {
             bool isSuccess = false;
 
             SqlConnection conn = new SqlConnection(myconnstrng);
             try
             {
-                string sql = "UPADTE tbl_Contact SET Fname=@Fname,Lname=@Lname,ContactNo=@ContactNo,Address=@Address,Gender=@Gender WHERE CustomarId=@CustomarId";
+                string sql = "UPDATE tbl_Contact SET Fname=@Fname,Lname=@Lname,ContactNo=@ContactNo,Address=@Address,Gender=@Gender WHERE CustomarId=@CustomarId";
                 SqlCommand cmd = new SqlCommand(sql, conn);
+
+                cmd.Parameters.AddWithValue("@CustomarId", c.CustomarId);
                 cmd.Parameters.AddWithValue("@Fname", c.Fname);
-                cmd.Parameters.AddWithValue("@Lname", c.Fname);
+                cmd.Parameters.AddWithValue("@Lname", c.Lname);
                 cmd.Parameters.AddWithValue("@ContactNo", c.ContactNo);
                 cmd.Parameters.AddWithValue("@Address", c.Address);
                 cmd.Parameters.AddWithValue("@Gender", c.Gender);
-                cmd.Parameters.AddWithValue("@CustomarId", c.CustomarId);
 
                 conn.Open();
 
@@ -108,10 +109,7 @@ namespace SimpleContactForm
                 {
                     isSuccess = true;
                 }
-                else
-                {
-                    isSuccess = false;
-                }
+                
             }
             catch(Exception ex)
             {

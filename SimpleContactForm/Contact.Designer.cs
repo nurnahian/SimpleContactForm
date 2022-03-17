@@ -32,7 +32,7 @@ namespace SimpleContactForm
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Contact));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtboxCustomarId = new System.Windows.Forms.TextBox();
             this.txtboxFname = new System.Windows.Forms.TextBox();
             this.labFname = new System.Windows.Forms.Label();
             this.txtboxContactNo = new System.Windows.Forms.TextBox();
@@ -50,6 +50,7 @@ namespace SimpleContactForm
             this.labSearch = new System.Windows.Forms.Label();
             this.txtboxSearch = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.btnExit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ContactdataGridView)).BeginInit();
             this.SuspendLayout();
@@ -75,13 +76,13 @@ namespace SimpleContactForm
             this.label1.TabIndex = 1;
             this.label1.Text = "Customar ID";
             // 
-            // textBox1
+            // txtboxCustomarId
             // 
-            this.textBox1.Location = new System.Drawing.Point(172, 116);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(205, 26);
-            this.textBox1.TabIndex = 2;
+            this.txtboxCustomarId.Location = new System.Drawing.Point(172, 116);
+            this.txtboxCustomarId.Name = "txtboxCustomarId";
+            this.txtboxCustomarId.ReadOnly = true;
+            this.txtboxCustomarId.Size = new System.Drawing.Size(205, 26);
+            this.txtboxCustomarId.TabIndex = 2;
             // 
             // txtboxFname
             // 
@@ -186,6 +187,7 @@ namespace SimpleContactForm
             this.btnUpdate.TabIndex = 14;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnClear
             // 
@@ -195,6 +197,7 @@ namespace SimpleContactForm
             this.btnClear.TabIndex = 16;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnDelete
             // 
@@ -207,6 +210,7 @@ namespace SimpleContactForm
             this.btnDelete.TabIndex = 15;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // ContactdataGridView
             // 
@@ -234,6 +238,7 @@ namespace SimpleContactForm
             this.txtboxSearch.Name = "txtboxSearch";
             this.txtboxSearch.Size = new System.Drawing.Size(625, 26);
             this.txtboxSearch.TabIndex = 19;
+            this.txtboxSearch.TextChanged += new System.EventHandler(this.txtboxSearch_TextChanged);
             // 
             // comboBox1
             // 
@@ -246,11 +251,25 @@ namespace SimpleContactForm
             this.comboBox1.Size = new System.Drawing.Size(205, 28);
             this.comboBox1.TabIndex = 20;
             // 
+            // btnExit
+            // 
+            this.btnExit.BackColor = System.Drawing.Color.Firebrick;
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnExit.Location = new System.Drawing.Point(994, 475);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(80, 34);
+            this.btnExit.TabIndex = 21;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
             // Contact
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1086, 531);
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.txtboxSearch);
             this.Controls.Add(this.labSearch);
@@ -268,7 +287,7 @@ namespace SimpleContactForm
             this.Controls.Add(this.labLname);
             this.Controls.Add(this.txtboxFname);
             this.Controls.Add(this.labFname);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtboxCustomarId);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -288,7 +307,7 @@ namespace SimpleContactForm
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtboxCustomarId;
         private System.Windows.Forms.TextBox txtboxFname;
         private System.Windows.Forms.Label labFname;
         private System.Windows.Forms.TextBox txtboxContactNo;
@@ -306,6 +325,7 @@ namespace SimpleContactForm
         private System.Windows.Forms.Label labSearch;
         private System.Windows.Forms.TextBox txtboxSearch;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button btnExit;
     }
 }
 
